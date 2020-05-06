@@ -42,7 +42,9 @@ public class AppointmentsAPI extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String output = appObj.insertAppointment(request.getParameter("appointmentID"),request.getParameter("patientName"), request.getParameter("doctorName"), request.getParameter("hospitalName"), request.getParameter("roomNumber"), request.getParameter("appointmentNumber"), request.getParameter("date")); 
+		System.out.println("passed Here");
+		String output = appObj.insertAppointment(request.getParameter("aID"),request.getParameter("pName"), request.getParameter("dName"), request.getParameter("hName"), request.getParameter("roomNO"), request.getParameter("appNO"), request.getParameter("aDate")); 
+		System.out.println(output);
 		response.getWriter().write(output); 
 	}
 
@@ -52,7 +54,7 @@ public class AppointmentsAPI extends HttpServlet {
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		Map paras = getParasMap(request); 
-		 String output = appObj.updateAppointment(paras.get("hidAppointmentIDSave").toString(), paras.get("appointmentID").toString(), paras.get("patientName").toString(), paras.get("doctorName").toString(), paras.get("hospitalName").toString(), paras.get("roomNumber").toString(), paras.get("appointmentNumber").toString(), paras.get("date").toString()); 
+		 String output = appObj.updateAppointment(paras.get("hidanoSave").toString(), paras.get("aID").toString(), paras.get("pName").toString().replace("+", " "), paras.get("dName").toString().replace("+", " "), paras.get("hName").toString().replace("+", " "), paras.get("roomNO").toString(), paras.get("appNO").toString(), paras.get("aDate").toString()); 
 		response.getWriter().write(output);
 	}
 

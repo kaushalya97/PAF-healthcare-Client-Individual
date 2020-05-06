@@ -53,8 +53,9 @@ public class Appointment {
 			preparedStmt.setString(5, hName);
 			preparedStmt.setString(6, roomNO);
 			preparedStmt.setString(7, appNO);
-			String localDate = LocalDate.now().toString();
-			preparedStmt.setObject(8 , aDate);
+			preparedStmt.setString(8, aDate);
+			//String localDate = LocalDate.now().toString();
+			//preparedStmt.setObject(8 , aDate);
 			
 			
             //execute the statement
@@ -83,7 +84,7 @@ public class Appointment {
 			{ return "Error while connecting to the database for reading."; }
 			
             // Prepare the html table to be displayed
-			output = "<table border=\"1\"><tr><th>Appointment Id</th><th>Patient Name</th><th>Doctor Name</th><th>Hospital Name</th><th>Room No</th><th>Appointment Number</th><th>Date</th>"
+			output = "<table border='1'><tr><th>Appointment Id</th><th>Patient Name</th><th>Doctor Name</th><th>Hospital Name</th><th>Room No</th><th>Appointment Number</th><th>Date</th>"
 					+ " <th>Update</th>"
 					+ "<th>Remove</th></tr>";
 			
@@ -104,7 +105,7 @@ public class Appointment {
 				
 				
 				// Add into the html table
-				output += "<tr><td><input id='hidAppointmentIDUpdate' name='hidAppointmentIDUpdate' type='hidden' value='" + ano 
+				output += "<tr><td><input id='hidanoUpdate' name='hidanoUpdate' type='hidden' value='" + ano 
 						+ "'>" + aID + "</td>";
 				output += "<td>" + pName + "</td>"; 
 				output += "<td>" + dName + "</td>";
@@ -117,7 +118,7 @@ public class Appointment {
 				// buttons
 				output += "<td><input name='btnUpdate' type='button' value='Update' class='btnUpdate btn btn-secondary'></td>"
 						   + "<td><input name='btnRemove' type='button' value='Remove' class='btnRemove btn btn-danger' data-ano='"
-					       +  ano + "'> " + "></td></tr>"; 
+					       +  ano + "'  " + "></td></tr>"; 
 				
 			}
 			con.close();
@@ -152,8 +153,9 @@ public class Appointment {
 			preparedStmt.setString(4, hName);
 			preparedStmt.setString(5, roomNO);
 			preparedStmt.setString(6, appNO);
-			String localDate = LocalDate.now().toString();
-			preparedStmt.setObject(7 , aDate);
+			preparedStmt.setString(7, aDate);
+			//String localDate = LocalDate.now().toString();
+			//preparedStmt.setObject(7 , aDate);
 			preparedStmt.setInt(8, Integer.parseInt(ano));
 			
 			// execute the statement
